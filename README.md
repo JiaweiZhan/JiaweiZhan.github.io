@@ -1,6 +1,6 @@
 ## Welcome to JiaweiZhan's Homepage
 
-You can use [My CV](https://jiaweizhan.github.io/Curriculum_Vitae/) (or [My CV in Github](https://github.com/JiaweiZhan/Curriculum_Vitae/blob/master/JiaweiZhan_CV.pdf)) the [editor on GitHub](https://github.com/JiaweiZhan/JiaweiZhan.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This is my [CV](https://github.com/JiaweiZhan/Curriculum_Vitae/blob/gh-pages/JiaweiZhan_CV.pdf) (or you may want to [download](https://github.com/JiaweiZhan/Curriculum_Vitae/raw/gh-pages/JiaweiZhan_CV.pdf) it)You can use the [editor on GitHub](https://github.com/JiaweiZhan/JiaweiZhan.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
