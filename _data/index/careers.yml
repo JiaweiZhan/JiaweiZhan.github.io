@@ -1,0 +1,29 @@
+# careers section data
+# if you don't have language feature(language.yml is empty), ignore "i18n" items
+- name:
+    detail: Institute of Software, Chinese Academy of Sciences
+    i18n: company_a
+  desc:
+    detail: Worked on the project Dynamic Index Updates of Moving Taxi via Grid Index, R-tree Index and Nearest Neighbor Index. 
+    i18n: company_a_desc
+  date:
+    detail: Jul. 2017
+    i18n: company_a_date
+  job:
+    detail: Internship
+    i18n: company_a_job
+  icon: fa-plus-square
+
+- name:
+    detail: University of California, Los Angeles
+    i18n: company_b
+  desc:
+    detail: Studied in UCLA in 2018's summer session and got high scores in two credit classes.
+    i18n: company_b_desc
+  date:
+    detail: Jul. 2018
+    i18n: company_b_date
+  job:
+    detail: Summer School
+    i18n: company_b_job
+  icon: fa-plus-square

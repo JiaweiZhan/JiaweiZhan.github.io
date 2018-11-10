@@ -1,0 +1,6 @@
+# skills section data
+
+label: Ability
+id : cs
+aspects: C/C++/python, Experiment, VASP, Matlab/Mathmatica, Theoretical Physics, Condensed Matter Physics, Mathmatical Foundation
+percentage: 80, 75, 75, 85, 80, 95, 100
