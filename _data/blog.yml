@@ -6,8 +6,8 @@
 - name: Vitae
   href: /vitae/
 
-  #- name: Linux
-  #href: /linux/
+- name: About
+  href: /about/
 
 - #name: HTML
   #href: /html/
