@@ -28,7 +28,7 @@ author:  # change following line to your infomation.
   skill_icon2:
     - name: fa-linux
     - name: icon-apache
-  desc: Majored in Condensed Matter Physics, Applied Physcis, University of Science and Technology of China  # Describe yourself.
+  desc: B.S. in Condensed Matter Physics, Applied Physcis, University of Science and Technology of China  # Describe yourself.
 
 # comment
 disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.
