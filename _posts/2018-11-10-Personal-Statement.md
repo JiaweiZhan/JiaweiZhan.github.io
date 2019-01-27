@@ -13,5 +13,5 @@ As a student majoring in Condensed Physics with an interest in computational phy
 
 However, persevering in doing research or not is always a challenging decision. To be candid, I have hesitated long ever since I decided to major in physics at the beginning. After agitating confusion and a series of trials, luckily, it dawned on me that making contributions to the theories for some applicable uses does strike me as gratification. The consequence is that I am addicted to the charm of physics. And now, my goal is clearer than ever before both short-term and long-term. During my undergraduate life, I want  to assist my teammates to establish the theoretical foundation of one biomaterial which could simultaneously detect and deal with cancer cell in therapy and put it into effect.  Also, I want to analyze the properties of multiple molecules systems with the help of VASP. After graduation, I’m determined to go abroad for more advanced expertise in order to satisfy my curiosity in the physical field. And then, if everything follows my schedule, I, with no hesitation, would  chase the academic path in one of the top universities to continue my research.
 
-Interest Ph.D. Programs: Physics, Statistics.
+Interest Ph.D. Programs: Physics, Statistics, Computer Science.
 
