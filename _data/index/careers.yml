@@ -27,3 +27,33 @@
     detail: Summer School
     i18n: company_b_job
   icon: fa-plus-square
+
+
+- name:
+    detail: University of Science and Technology of China, Hefei, Anhui, China
+    i18n: company_b
+  desc:
+    detail: Cooperated with PhD, working on the electronic structure and magnetic properties of Ni-O-doped SnS2.
+    i18n: company_b_desc
+  date:
+    detail: Sep. 2018
+    i18n: company_b_date
+  job:
+    detail: Research
+    i18n: company_b_job
+
+
+- name: 
+    detail: University of Science and Technology of China, Hefei, Anhui, China
+    i18n: company_b
+  desc:
+    detail: Preparation and application of Photo-thermal, Magnetic and Fluorescent Three-functional Nano-probes:Au star, Fe3O4 and QDs.
+    i18n: company_b_desc
+  date:
+    detail: Sep. 2018
+    i18n: company_b_date
+  job:
+    detail: Research
+    i18n: company_b_job
+
+
