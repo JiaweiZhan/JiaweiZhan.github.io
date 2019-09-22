@@ -2,5 +2,5 @@
 
 label: Ability
 id : cs
-aspects: Mathmatical Foundation, Experiment, VASP FHI-aims, Matlab/Mathmatica, Condensed Matter Physics, Theoretical Physics, C/C++/Python, English
-percentage: 100, 75, 85, 80, 95, 80, 95, 83
+aspects: Mathmatical Foundation, Machine Learning or Algorithm Designing, VASP FHI-aims, Matlab/Mathmatica, Condensed Matter Physics, Theoretical Physics, C/C++/Python, English
+percentage: 100, 85, 85, 80, 95, 85, 95, 83
