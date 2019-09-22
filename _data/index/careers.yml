@@ -79,7 +79,7 @@
     i18n: company_b
   desc:
     detail: Designed and implemented a state-of-the-art python package for predicting the most likely structure of organic interfaces.
-      i18n: company_b_desc
+    i18n: company_b_desc
   date:
     detail: Jul. 2019 – Sep. 2019
     i18n: company_b_date
