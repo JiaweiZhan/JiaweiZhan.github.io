@@ -7,9 +7,22 @@
 
 - last_name: Zhan
   first_name: Jiawei
-  desc: Build the Homepage
-  website: https://github.com/JiaweiZhan/Curriculum_Vitae/blob/master/JiaweiZhan_CV.pdf
+  desc: Jiawe's Homepage
+  website: http://jiaweizhan.com/
   email: yw1314@mail.ustc.edu.cn
+
+- last_name: Zhao
+  first_name: Jin
+  desc: Jiawe's Advisor : Jin Zhao's Homepage
+  website: http://staff.ustc.edu.cn/~zhaojin/group_leader.html
+  email: zhaojin@ustc.edu.cn
+
+
+- last_name: Marom
+  first_name: Noa
+  desc: Jiawe's Advisor : Noa Marom's Homepage
+  website: http://www.noamarom.com/
+  email: nmarom@andrew.cmu.edu
 
   #- last_name: LN
   #first_name: FN
