@@ -18,10 +18,10 @@
     detail: University of California, Los Angeles
     i18n: company_b
   desc:
-    detail: Studied in UCLA in 2018's summer session and got high scores in two credit classes.
+    detail: Studied in UCLA in 2018's summer session and got 4.0 / 4.0.
     i18n: company_b_desc
   date:
-    detail: Jul. 2018
+    detail: Jun. 2018 - Aug. 2018
     i18n: company_b_date
   job:
     detail: Summer School
@@ -33,14 +33,15 @@
     detail: University of Science and Technology of China, Hefei, Anhui, China
     i18n: company_b
   desc:
-    detail: Cooperated with PhD, working on the electronic structure and magnetic properties of Ni-O-doped SnS2.
+    detail:Numerically proved that oxygen doping could enhance 𝑆𝑛𝑆2 ’s photocatalytic property in visible-lightdriven 𝐶𝑂2 reduction 
     i18n: company_b_desc
   date:
-    detail: Sep. 2018
+    detail: Sep. 2018 – Jan. 2019
     i18n: company_b_date
   job:
-    detail: Research
+    detail: Research Assistant
     i18n: company_b_job
+  icon: fa-plus-square
 
 
 - name: 
@@ -55,5 +56,34 @@
   job:
     detail: Research and Paper Competition
     i18n: company_b_job
+  icon: fa-plus-square
 
 
+- name:
+    detail: University of Science and Technology of China, Hefei, Anhui, China
+    i18n: company_b
+  desc:
+    detail:Improved the efficiency of 𝐶𝑂2 photoreduction by doping alkali metal element to engineer the electronic properties of the catalyst 
+    i18n: company_b_desc
+  date:
+    detail: Mar. 2018 – Jul. 2019
+    i18n: company_b_date
+  job:
+    detail: Research Assistant
+    i18n: company_b_job
+  icon: fa-plus-square
+
+
+- name:
+    detail: Carnegie Mellon University, Pittsburgh, PA, USA 
+    i18n: company_b
+  desc:
+    detail: Designed and implemented a state-of-the-art python package for predicting the most likely structure of organic interfaces.
+      i18n: company_b_desc
+  date:
+    detail: Jul. 2019 – Sep. 2019
+    i18n: company_b_date
+  job:
+    detail: Research Assistant
+    i18n: company_b_job
+  icon: fa-plus-square
