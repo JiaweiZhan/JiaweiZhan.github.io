@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Curriculum Vitae"
-date:   2019-11-10
+date:   2018-11-09
 desc: "Curriculum Vitae"
 keywords: "CV, Vitae, USTC"
 categories: [Vitae]
