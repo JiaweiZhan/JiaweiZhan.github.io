@@ -20,5 +20,4 @@ Summary: Designed and implemented a state-of-the-art python package for predicti
 -	Created a Graphic Neural Network (GNN) model for predicting organic systems‘ non-bonded interactions, with the efficiency of empirical methods and the accuracy of DFT method
 -	Used three different workflows to optimize the structure of interfaces, and GNN exceeded others in accuracy and time cost (Errors < 3%, 10000 × faster than DFT)
 
-
-<center><embed src="/CV/Final_Presentation_USTC.pdf" width="850" height="600"></center>
+The presentation of this project is attached to this [link](https://drive.google.com/file/d/17LXl33MuGLrYIKm3qkBWU3Bs0lkgDojR/view?usp=sharing).
