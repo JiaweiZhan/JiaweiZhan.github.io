@@ -5,7 +5,7 @@ date:   2019-10-08
 desc: "Project"
 keywords: "Project, CMU, Material Science, Physics, Machine Learning, Graph
 Theory"
-categories: [Vitae]
+categories: [Project]
 tags: [Project,CMU, MSE, Machine Learning]
 icon: icon-html
 ---
