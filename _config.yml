@@ -16,11 +16,11 @@ author:  # change following line to your infomation.
   last_name: Zhan  # Be used at index page about me section.
   avatar: /static/assets/img/landing/IMG_0258.png  # upload your avatar at directory and edit it.
   github_username: JiaweiZhan  # Leave blank if you don't have now
-  linkedin_id:  # Leave blank if you don't have now
-  facebook_username:   # Leave blank if you don't have now
+  linkedin_id: jiawei-zhan-11a99b1a3 # Leave blank if you don't have now
+  facebook_username: jiawei.zhan.12  # Leave blank if you don't have now
   twitter_username:   # Leave blank if you don't have now
   email: yw1314@mail.ustc.edu.cn  # Leave blank if you don't have now
-  cv: https://github.com/JiaweiZhan/Curriculum_Vitae/blob/gh-pages/JiaweiZhan_CV.pdf  # An online CV can be printed as PDF, leave blank if you don't have now
+  cv: http://jiaweizhan.com/online-cv/  # An online CV can be printed as PDF, leave blank if you don't have now
   # skill icons are on avatar's left and right side. Reference urls are http://fontawesome.io/ and http://fizzed.com/oss/font-mfizz
   skill_icon1:
     - name: icon-apache
@@ -28,7 +28,8 @@ author:  # change following line to your infomation.
   skill_icon2:
     - name: fa-linux
     - name: icon-apache
-  desc: B.S. in Condensed Matter Physics, Applied Physcis, University of Science and Technology of China  # Describe yourself.
+  desc: B.S. in Physcis @ University of Science and Technology of China (USTC)\n
+        Incoming Ph.D. Candidate @ The University of Chicago (UChicago) # Describe yourself.
 
 # comment
 disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.
