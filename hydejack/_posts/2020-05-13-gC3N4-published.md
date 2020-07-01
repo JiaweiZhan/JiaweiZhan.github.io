@@ -8,7 +8,7 @@ I'm very happy to anounce that our paper is finally published after one year of
 theoretical computations and experiments. In this paper, we report a new study on 
 the potassium-doped g-C<sub>3</sub>N<sub>4</sub> (K-CN) being used for CO<sub>2</sub> reduction irradiated by visible light. 
 And Our work further validates the importance of inhibiting e<sup>–</sup>/h<sup>+</sup> recombination 
-in improving solar energy conversion efficiency while also bringing hope for efficient solar fuel production using g-C<sub>3</sub>N<sub>4</sub>.
+in improving solar energy conversion efficiency while also bringing hope for efficient solar fuel production using g-C<sub>3</sub>N<sub>4</sub>.  
 
 
 <font size="5">Reference:</font>  
