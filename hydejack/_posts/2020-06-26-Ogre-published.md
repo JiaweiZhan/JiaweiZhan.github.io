@@ -13,10 +13,10 @@ graphic molecular representations. Moreover, we utilize Ogre to carry out
 quantum-chemistry calculation and crystal habit prediction.
 
 In the subsequent research, we will use Ogre to cleave slabs and predict
-optimized interfaces of two slabs via Monte-Carlo Methods and machine learning.<br />
+optimized interfaces of two slabs via Monte-Carlo Methods and machine learning.<br /><br />
 
 
-<font size="5">Reference:</font>  
+<font size="5">Reference:</font>
  Ogre: A Python package for molecular crystal surface generation with applications to surface energy and crystal habit prediction  
 <span style="color:gray"> <font size="3">Shuyang Yang, Imanuel Bier, Wen Wen, <span style="color:black">Jiawei Zhan</span>, Saeed Moayedpour, and Noa Marom</font></span>  
 <span style="color:rgb(79,177,186);font-weight:bold"> <font size="3">J. Chem. Phys. 152, 244122 (2020)</font></span> <font size="3">/</font> [<span style="color:rgb(79,177,186)"> <font size="3">AIP</font></span>](https://aip.scitation.org/doi/full/10.1063/5.0010615) <font size="3">/</font>[<span style="color:rgb(79,177,186)"> <font size="3">Project Page</font></span>](https://www.noamarom.com/software/ogre/)
