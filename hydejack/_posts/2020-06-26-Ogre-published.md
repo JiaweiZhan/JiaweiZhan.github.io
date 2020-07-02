@@ -13,7 +13,7 @@ graphic molecular representations. Moreover, we utilize Ogre to carry out
 quantum-chemistry calculation and crystal habit prediction.
 
 In the subsequent research, we will use Ogre to cleave slabs and predict
-optimized interfaces of two slabs via Monte-Carlo Methods and machine learning.  
+optimized interfaces of two slabs via Monte-Carlo Methods and machine learning.<br />
 
 
 <font size="5">Reference:</font>  
