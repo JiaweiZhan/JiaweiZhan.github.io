@@ -5,14 +5,13 @@ title:  Welcome
 image: /assets/img/hydejack-8.png
 hide_description: true
 ---
-I got my bachlor degree in Physics (minor in Computer Science) from University of Science and Technology (USTC) in 2020 and am now a Ph.D. student  
-at the University of Chicago (UChicago). I'm particularly interested in Machine Learning, molecular dynamics, quantum information and science (QIS), and inverse material
+I got my bachlor degree in Physics (minor in Computer Science) from University of Science and Technology (USTC) in 2020 and am now a Ph.D. student at the University of Chicago (UChicago). I'm particularly interested in Machine Learning, molecular dynamics, quantum information and science (QIS), and inverse material
 designs.
 
 During my undergrad, I was fortunate to collaborate with [Prof. Jin Zhao](http://staff.ustc.edu.cn/~zhaojin/) and [Prof. Noa
 Marom](http://noamarom.com/) to research into excited molecular dynamics and surface generation.
 
-At Uchicago, I joined [Prof. Giulia Galli](https://galligroup.uchicago.edu/People/jzhan.php)'s group and is now working on utilizing Deep Learning as well as generating
+At Uchicago, I joined [Prof. Giulia Galli](https://galligroup.uchicago.edu/People/jzhan.php)'s group and am now working on utilizing Deep Learning as well as generating
 general Density-Dependent Hybrid Functional (DDH) 
 ## News
 <!--posts-->
