@@ -3,7 +3,7 @@
 # See also: <https://jsonresume.org/>.
 basics:
   name: "Jiawei Zhan"
-  label: "PhD candidate at the University of Chicago (UChicago)"
+  label: "PhD student at the University of Chicago (UChicago)"
   # picture: "/assets/icons/icon.png"
   email: "jiaweiz@uchicago.edu"
   phone: "(+86) 18980001323"
@@ -28,11 +28,24 @@ basics:
       username: "Jiawei Zhan"
       url: "https://www.linkedin.com/in/jiawei-zhan-11a99b1a3/"
 work:
+  - company: "the University of Chicago"
+    position: "Research Assistant"
+    website: "https://galligroup.uchicago.edu/People/jzhan.php"
+    startDate: "2020-09-29"
+    endDate: ""
+    summary: >
+        Apply Transfer Learning to utilize inner relationship between PBE and HSE so that calculation results by high level of theory 
+        can be achieved in a cheaper way. Introduce dielectric screening into hybrid functional to extend the applications of DFT to 
+        heterogenous systems, including interfaces, defects and finite systems.
+    highlights:
+      - "Combine Behler and Parrinello (BP) architecture and Deep Sets neural network to better represent solid system"
+      - "Calculate dielectric screening by using separable form of Screened Coulomb Interaction and use that to control the contribution of HF and PBE exchange"
+
   - company: "University of Science and Technology of China"
     position: "Research Assistant"
     website: "http://staff.ustc.edu.cn/~zhaojin/"
     startDate: "2020-07-01"
-    endDate: ""
+    endDate: "2020-09-01"
     summary: >
       Wrote a interface between Berkeley GW and VASP 
       to reduce the limitation of systems’ sizes and kpoints’ numbers brought by calculation approach
