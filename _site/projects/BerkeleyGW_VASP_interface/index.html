@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en"><!--
+ __  __                __                                     __
+/\ \/\ \              /\ \             __                    /\ \
+\ \ \_\ \   __  __    \_\ \      __   /\_\      __       ___ \ \ \/'\
+ \ \  _  \ /\ \/\ \   /'_` \   /'__`\ \/\ \   /'__`\    /'___\\ \ , <
+  \ \ \ \ \\ \ \_\ \ /\ \L\ \ /\  __/  \ \ \ /\ \L\.\_ /\ \__/ \ \ \\`\
+   \ \_\ \_\\/`____ \\ \___,_\\ \____\ _\ \ \\ \__/.\_\\ \____\ \ \_\ \_\
+    \/_/\/_/ `/___/> \\/__,_ / \/____//\ \_\ \\/__/\/_/ \/____/  \/_/\/_/
+                /\___/                \ \____/
+                \/__/                  \/___/
+
+Powered by Hydejack v8.5.2 <https://hydejack.com/>
+-->
+
+
+
+
+
+
+
+
+
+
+
+<head>
+  
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+
+
+  
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Berkeley GW–VASP interface | Jiawei Zhan</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Berkeley GW–VASP interface" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Ab initio GW calculation by VASP would take lots of computational cost, which further limits the number of atoms that the simulated cluster could contain. Therefore, in order to expand the scale of systems that Hefei-NAMD could analyze, we want to replace VASP GW with Berkeley GW, which is very famous for its large scale parallel algorithm and fast GW calculation." />
+<meta property="og:description" content="Ab initio GW calculation by VASP would take lots of computational cost, which further limits the number of atoms that the simulated cluster could contain. Therefore, in order to expand the scale of systems that Hefei-NAMD could analyze, we want to replace VASP GW with Berkeley GW, which is very famous for its large scale parallel algorithm and fast GW calculation." />
+<link rel="canonical" href="http://localhost:4000/projects/BerkeleyGW_VASP_interface/" />
+<meta property="og:url" content="http://localhost:4000/projects/BerkeleyGW_VASP_interface/" />
+<meta property="og:site_name" content="Jiawei Zhan" />
+<meta property="og:image" content="http://localhost:4000/assets/img/projects/VASP_BGW.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-01T00:00:00-07:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/projects/BerkeleyGW_VASP_interface/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/icons/icon.png"}},"headline":"Berkeley GW–VASP interface","dateModified":"2020-07-01T00:00:00-07:00","datePublished":"2020-07-01T00:00:00-07:00","description":"Ab initio GW calculation by VASP would take lots of computational cost, which further limits the number of atoms that the simulated cluster could contain. Therefore, in order to expand the scale of systems that Hefei-NAMD could analyze, we want to replace VASP GW with Berkeley GW, which is very famous for its large scale parallel algorithm and fast GW calculation.","image":"http://localhost:4000/assets/img/projects/VASP_BGW.jpg","@type":"WebPage","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  
+
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Jiawei Zhan">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="application-name" content="Jiawei Zhan">
+<meta name="msapplication-config" content="/assets/ieconfig.xml">
+
+
+<meta name="theme-color" content="rgb(25,55,71)">
+
+
+<meta name="generator" content="Hydejack v8.5.2" />
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Jiawei Zhan" />
+
+
+
+<link rel="alternate" href="http://localhost:4000/projects/BerkeleyGW_VASP_interface/" hreflang="en">
+
+<link rel="shortcut icon" href="/assets/icons/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/icons/icon.png">
+
+<link rel="manifest" href="/assets/manifest.json">
+
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+
+
+
+<link rel="dns-prefetch" href="/" id="_baseURL">
+<link rel="dns-prefetch" href="/sw.js" id="_hrefSW">
+<link rel="dns-prefetch" href="/assets/bower_components/katex/dist/katex.min.js" id="_hrefKatexJS">
+<link rel="dns-prefetch" href="/assets/bower_components/katex/dist/katex.min.css" id="_hrefKatexCSS">
+<link rel="dns-prefetch" href="/assets/bower_components/katex/dist/contrib/copy-tex.min.js" id="_hrefKatexCopyJS">
+<link rel="dns-prefetch" href="/assets/bower_components/katex/dist/contrib/copy-tex.min.css" id="_hrefKatexCopyCSS">
+<link rel="dns-prefetch" href="/assets/img/swipe.svg" id="_hrefSwipeSVG">
+
+
+
+<link rel="dns-prefetch" href="https://jiawei_zhan.disqus.com" id="_hrefDisqus">
+
+
+<script>
+!function(e,t){"use strict";function n(e,t,n,o){e.addEventListener?e.addEventListener(t,n,o):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n}e.loadJS=function(e,o){var r=t.createElement("script");r.src=e,o&&n(r,"load",o,{once:!0});var a=t.scripts[0];return a.parentNode.insertBefore(r,a),r},e._loaded=!1,e.loadJSDeferred=function(o,r){function a(){e._loaded=!0,r&&n(c,"load",r,{once:!0});var o=t.scripts[0];o.parentNode.insertBefore(c,o)}var c=t.createElement("script");return c.src=o,e._loaded?a():n(e,"load",a,{once:!0}),c},e.setRel=e.setRelStylesheet=function(e){function o(){this.rel="stylesheet"}n(t.getElementById(e),"load",o,{once:!0})}}(window,document);
+;
+!function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+;
+!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+;
+!function(w, d) {
+  w._noPushState = false;
+  w._noDrawer = false;
+}(window, document);
+</script>
+
+<!--[if gt IE 8]><!---->
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/hydejack-8.5.2.css">
+  <link rel="stylesheet" href="/assets/icomoon/style.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400|Noto+Sans:400,400i,700,700i&display=swap">
+  
+
+
+  <style id="_pageStyle">
+
+.content a:not(.btn){color:#4fb1ba;border-color:rgba(79,177,186,0.2)}.content a:not(.btn):hover{border-color:#4fb1ba}:focus{outline-color:#4fb1ba !important}.btn-primary{color:#fff;background-color:#4fb1ba;border-color:#4fb1ba}.btn-primary:focus,.btn-primary.focus,.form-control:focus,.form-control.focus{box-shadow:0 0 0 3px rgba(79,177,186,0.5)}.btn-primary:hover,.btn-primary.hover{color:#fff;background-color:#409ba3;border-color:#409ba3}.btn-primary:disabled,.btn-primary.disabled{color:#fff;background-color:#4fb1ba;border-color:#4fb1ba}.btn-primary:active,.btn-primary.active{color:#fff;background-color:#409ba3;border-color:#409ba3}@media screen{body.dark-mode{--body-bg: #2d3539;--border-color: #3d494f}}@media screen and (prefers-color-scheme: dark){body{--body-bg: #2d3539;--border-color: #3d494f}}::selection{color:#fff;background:#4fb1ba}::-moz-selection{color:#fff;background:#4fb1ba}
+
+</style>
+
+
+<!--<![endif]-->
+
+
+
+
+</head>
+
+<body class="no-color-transition">
+  
+<script>
+  window._sunrise = 6;
+  window._sunset = 18;
+  !function(e,s){var a="light-mode",d="dark-mode",o=(new Date).getHours();if(!("matchMedia"in e&&e.matchMedia("(prefers-color-scheme)"))){var i=o<=e._sunrise||o>=e._sunset?d:a,t=i===d?a:d;s.body.classList.add(i),s.body.classList.remove(t)}}(window,document);
+
+</script>
+
+  <div id="_navbar" class="navbar fixed-top">
+  <div class="content">
+    <div class="nav-btn-bar">
+      <span class="sr-only">Jump to:</span>
+      <a id="_menu" class="nav-btn no-hover fl" href="#_navigation">
+        <span class="sr-only">Navigation</span>
+        <span class="icon-menu"></span>
+      </a>
+      <!-- <a id="_search" class="nav-btn no-hover fl" href="#_search">
+        <span class="sr-only">Search</span>
+        <span class="icon-search"></span>
+      </a>
+      <form action="https://duckduckgo.com/" method="GET">
+        <div class="form-group fr">
+          <label class="sr-only" for="_search">Search</label>
+          <input id="_search" name="q" class="form-control" type="search" />
+        </div>
+        <input type="hidden" name="q" value="site:hydejack.com" />
+        <input type="hidden" name="ia" value="web" />
+      </form> -->
+    </div>
+  </div>
+</div>
+<hr class="sr-only" hidden />
+
+
+<hy-push-state
+  replace-ids="_main"
+  link-selector="a[href]:not([href*='/assets/']):not(.external):not(.no-push-state)"
+  duration="250"
+  script-selector="script:not([type^='math/tex'])"
+  prefetch
+>
+  
+    <main
+  id="_main"
+  class="content fade-in layout-project"
+  role="main"
+  data-color="#4fb1ba"
+  data-theme-color="rgb(25,55,71)"
+  
+    data-background="linear-gradient(to bottom,#193747 0%,#233e4c 30%,#3c929e 50%,#d5d5d4 70%,#cdccc8 100%)"
+    data-overlay
+  
+  >
+  
+
+
+
+
+
+<article
+  id="project"
+  class="page"
+  role="article"
+  vocab="http://schema.org/" typeof="CreativeWork" resource="#project"
+  >
+  <header>
+    <h1 class="page-title" property="name">Berkeley GW--VASP interface</h1>
+
+    <p class="post-date heading">
+      
+      
+        <a href="/projects/" class="flip-title" property="genre">Projects</a>
+        |
+      
+
+
+      <time datetime="2020-07-01T00:00:00-07:00">2020</time>
+      
+
+      <span class="fr">
+        <span class="sr-only">| Links:</span>
+        
+      </span>
+    </p>
+
+    
+    <div class="img lead sixteen-nine">
+      
+        
+
+
+  <hy-img
+    
+    src="/assets/img/projects/VASP_BGW.jpg"
+    
+    alt="Berkeley GW--VASP interface"
+  
+    property="image"
+    root-margin="512px"
+  >
+    <noscript><img data-ignore 
+    src="/assets/img/projects/VASP_BGW.jpg"
+    
+    alt="Berkeley GW--VASP interface"
+  /></noscript>
+    <span class="loading" slot="loading" hidden>
+      <span class="icon-cog"></span>
+    </span>
+  </hy-img>
+
+
+      
+    </div>
+
+    
+
+
+
+  
+    <p class="message" property="description">
+      Ab initio GW calculation by VASP would take lots of computational cost, which further limits the number of atoms that the simulated cluster could contain. Therefore, in order to expand the scale of systems that Hefei-NAMD could analyze, we want to replace VASP GW with Berkeley GW, which is very famous for its large scale parallel algorithm and fast GW calculation.
+
+    </p>
+  
+
+
+    <meta property="disambiguatingDescription" content="Expand the scale of systems that Hefei-Non-adiabatic Molecular Dynamics (HEFEI-NAMD) could analyze with the help of Berkeley GW."/>
+  </header>
+
+  <p><a href="http://staff.ustc.edu.cn/~zhaojin/code.html">Hefei-NAMD</a> is an ab initio nonadiabatic molecular dynamics program to 
+investigate the ultrafast excited carrier dynamics in real and momentum space, 
+energy and time scale. Hefei-NAMD would take the screened coulomb interaction
+W<sub>GG’</sub> and the difference of DFT_gap and GW_gap as input, construct
+Bethe–Salpeter equation and finally carry out time dependent evolution.
+Nowadays, there are mainly two version of Hefei-NAMD:</p>
+<ul>
+  <li>hefei-NAMD, developed by <a href="https://github.com/QijingZheng">Dr. Qijing Zhang</a>,
+  is wroten in Fortran</li>
+  <li>paraNAMD, developed by <a href="http://home.ustc.edu.cn/~jxiang/">Xiang Jiang</a>, supports parallel computing and is wroten in C++. <strong>(This project is based on paraNAMD)</strong></li>
+</ul>
+
+<p>Previously, Hefei-NAMD obtain required quasiparticles information and screened
+coulomb interaction frm <a href="https://www.vasp.at/">VASP</a>, which is a widely used quantum-chemistry calculation
+package based on Density Funtional Theory (DFT). VASP carries out a
+full-frequency GW calculation to obtain the quasiparticles’ bandstructure,
+which is very accurate but more time-consuming.</p>
+
+<p><a href="https://berkeleygw.org/">Berkeley GW</a>, however, is very famous for its large-scale parallel algorithm. 
+The package can be used to compute the electronic and optical properties of a 
+wide variety of material systems from bulk semiconductors and metals to 
+nanostructured materials and molecules. The package scales to 10,000’s of CPUs 
+and can be used to study systems containing up to 100’s of atoms.</p>
+
+<p>Therefore, this project would combine VASP and Berkeley GW, harvest each advantages
+, accelerate GW calculation required by Hefei-NAMD and finally makes Hefei-NAMD
+more applicable in excited carrier molecular dynamics simulation.</p>
+
+<h1 id="computational-process">Computational Process</h1>
+<h2 id="run-structure-optimized-on-primitive-cell">Run structure optimized on primitive cell</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>PrimitiveCell/struc_opt
+qsub sub_vasp
+</code></pre></div></div>
+<p><strong>INCAR</strong>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>General
+  SYSTEM      = WS2 monolayer primitive_cell
+  NPAR        = 4
+  PREC        = Accurate
+  ISIF        = 2
+  NSW         = 2000
+  EDIFFG      = -1E-5
+  IBRION      = 2
+  ENCUT       = 400
+  ISPIN       = 1
+  ISTART      = 0
+  ICHARG      = 2
+Dos Related values
+  LPLANE      = .TRUE.
+  ISMEAR      = 0
+  SIGMA       = 0.05
+Electronic relaxation
+  ALGO        = Normal
+  NELMIN      = 3
+  NELM        = 200
+  EDIFF       = 1E-8
+Dipole Correction
+#  LDIPOL      = .TRUE.
+#  IDIPOL      = 3
+#  DIPOL       = 0.5 0.5 0.5
+Writing Flag
+  LWAVE       = .FALSE.
+  LCHARG      = .FALSE.
+# VDW-DF
+#  LUSE_VDW    = .TRUE.
+#  AGGAC       = 0.0
+#  GGA         = RE
+</code></pre></div></div>
+<h2 id="run-scf-which-includes-an-intact-gw-calculation-dft1-dft2-g0w0">Run SCF, which includes an intact GW calculation (DFT1, DFT2, G0W0)</h2>
+<p><strong><em>WILL BE REPLACED BY Berkeley GW</em></strong></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ../SCF/DFT1
+qsub sub_vasp
+
+<span class="nb">cp </span>WAVECAR ../dft2/
+qsub sub_vasp
+
+<span class="nb">cp </span>WAVECAR ../g0w0/
+qsub sub_vasp
+<span class="nb">cp</span> <span class="k">${</span><span class="nv">HOME</span><span class="k">}</span>/NKPTSan ../g0w0/
+</code></pre></div></div>
+<p><strong>INCAR</strong> for dft1 and dft2:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>General
+  SYSTEM      = WS2 monolayer primitive cell
+  NPAR        = 4
+  PREC        = Accurate
+  NSW         = 0
+  ENCUT       = 400 eV
+  ISPIN       = 1
+  ISTART      = 0 # 1 for dft2
+  ICHARG      = 2 # 0 for dft2
+Dos Related values
+  LPLANE      = .TRUE.
+  ISMEAR      = 0
+  SIGMA       = 0.05
+  LORBIT      = 11
+  # LOPTICS = .TRUE. for dft2
+Electronic relaxation
+  ALGO        = Normal # Exact for dft2
+  NELMIN      = 6 # comment for dft2
+  NELM        = 300 # 1 for dft2
+  EDIFF       = 1E-9 # comment for dft2
+  # NBANDS = 192 for dft2
+Dipole Correction
+#  LDIPOL      = .TRUE.
+#  IDIPOL      = 3
+#  DIPOL       = 0.5 0.5 0.5
+Writing Flag
+  LWAVE       = .TRUE.
+  LCHARG      = .TRUE.
+#VDW-D2
+# VDW-DF
+#  LUSE_VDW    = .TRUE.
+#  AGGAC       = 0.0
+#  GGA         = RE
+</code></pre></div></div>
+<p><strong>INCAR</strong> for single-point GW calculation:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>General
+  SYSTEM      = WS2 monolayer primitive cell
+#  ISYM        = 2
+#  NPAR        = 4
+  PREC        = Accurate
+  NSW         = 0
+  ENCUT       = 400 eV
+  ISPIN       = 1
+  ISTART      = 1
+  ICHARG      = 0
+Dos Related values
+  LPLANE      = .TRUE.
+  ISMEAR      = 0
+  SIGMA       = 0.05
+Electronic relaxation
+#  IALGO       = 38
+  ALGO        = GW0
+  NELM        = 1
+  NBANDS      = 192
+  NBANDSGW    = 192
+  NOMEGA      = 40
+Dipole Correction
+#  LDIPOL      = .TRUE.
+#  IDIPOL      = 3
+#  DIPOL       = 0.5 0.5 0.5
+Writing Flag
+  LWAVE       = .TRUE.
+  LCHARG      = .TRUE.
+# LWANNIER90=.TRUE.
+#VDW-DF
+#  LUSE_VDW    = .TRUE.
+#  AGGAC       = 0.0
+#  GGA         = RE
+</code></pre></div></div>
+<h2 id="run-structure-on-supercell-to-take-more-kpoints-into-account">RUN structure on SuperCell to take more kpoints into account</h2>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ../SuperCell/struc_opt
+qsub sub_vasp
+</code></pre></div></div>
+<p><strong>INCAR</strong> is the same as PrimitiveCell’s struc_opt <strong>INCAR</strong>.</p>
+
+<h2 id="run-molecular-dynamics-in-nvt-and-nve-ensemble-respectively">RUN Molecular Dynamics in NVT and NVE ensemble respectively</h2>
+<p>run in NVT ensemble:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>CONTCAR ../100k/MD_NVT/POSCAR
+<span class="nb">cd</span> ../100k/MD_NVT
+qsub sub_vasp
+</code></pre></div></div>
+<p><strong>INCAR</strong> for NVT:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SYSTEM = WS2 monolayer 1x2
+
+# electronic degrees
+ENCUT = 400
+LREAL = A                      # real space projection
+PREC  = Normal                 # chose Low only after tests
+EDIFF = 1E-5                   # do not use default (too large drift)
+#ISMEAR = -1 ; SIGMA = 0.172   # Fermi smearing: 2000 K 0.086 10-3
+ISMEAR = 0 ; SIGMA = 0.1       # Gaussian smearing
+ALGO = Very Fast               # recommended for MD (fall back ALGO = Fast)
+MAXMIX = 40                    # reuse mixer from one MD step to next
+NCORE= 4                       # one orbital on 4 cores
+ISYM = 0                       # no symmetry
+NELMIN = 6                     # minimum steps per time step, avoid breaking after 2 steps
+
+# MD
+IBRION = 0                     #molecular dynamics
+NSW = 5000
+NWRITE = 0
+LWAVE = F ; LCHARG = F         #Don't write WAVECAR or CHGCAR
+TEBEG = 100                   #Start temperature
+TEEND = 100                   #Final temperature
+
+# canonic (Nose) MD with XDATCAR updated every 50 steps
+#SMASS = 0 ; NBLOCK = 50 ; POTIM = 1.5
+
+# micro canonical MD with temperature scaling every 50 steps
+# good for equlibration but usually better to use Nose thermostat
+SMASS = -1 ; NBLOCK = 5 ; POTIM = 1.0
+</code></pre></div></div>
+<p>Check whether temperature converge at the target point:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python script/temp.py
+</code></pre></div></div>
+<p>run in NVE ensemble:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>CONTCAR ../100k/MD_NVE/POSCAR
+<span class="nb">cd</span> ../100k/MD_NVE
+qsub sub_vasp
+</code></pre></div></div>
+<p><strong>INCAR</strong> for NVE:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SYSTEM = WS2 monolayer 1x2
+
+# electronic degrees
+ENCUT = 400
+LREAL = A                      # real space projection
+PREC  = Low                    # chose Low only after tests
+EDIFF = 1E-5                   # do not use default (too large drift)
+#ISMEAR = -1 ; SIGMA = 0.172   # Fermi smearing: 2000 K 0.086 10-3
+ISMEAR = 0 ; SIGMA = 0.1       # Gaussian smearing
+ALGO = Fast                    # recommended for MD (fall back ALGO = Fast)
+MAXMIX = 40                    # reuse mixer from one MD step to next
+NCORE= 4                       # one orbital on 4 cores
+ISYM = 0                       # no symmetry
+NELMIN = 4                     # minimum steps per time step, avoid breaking after 2 steps
+
+# MD
+IBRION = 0                     #molecular dynamics
+NSW = 12000
+NWRITE = 0
+LWAVE = F ; LCHARG = F         #Don't write WAVECAR or CHGCAR
+TEBEG = 100                   #Start temperature
+TEEND = 100                   #Final temperature
+
+# canonic (Nose) MD with XDATCAR updated every 50 steps
+#SMASS = 0 ; NBLOCK = 50 ; POTIM = 1.5
+
+# micro canonical MD with temperature scaling every 50 steps
+# good for equlibration but usually better to use Nose thermostat
+# SMASS = -1 ; NBLOCK = 5 ; POTIM = 1.0
+
+# canonic MD
+SMASS = -3 ; NBLOCK = 1 ; POTIM = 1.0
+</code></pre></div></div>
+<h2 id="electronic-calculation-for-each-geometry-in-nve-trajectory">Electronic Calculation for Each Geometry in NVE Trajectory</h2>
+<p>Obtain each geometry from NVE’s <strong>XDATCAR</strong> file</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>XDATCAR ../NAMD/
+python script/xdat2pos.py
+</code></pre></div></div>
+<p><strong>INCAR</strong> for electronic calculation:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>General
+  SYSTEM      = WS2 monolayer 1x2
+  ISYM        = -1
+  NPAR        = 4
+  PREC        = Med
+  NSW         = 0
+  ENCUT       = 400 eV
+  #NGX = 38; NGY = 42; NGZ = 162
+  #NGX = 42; NGY = 50; NGZ = 182
+  ISPIN       = 1
+  ISTART      = 0
+  ICHARG      = 1
+Dos Related values
+  LPLANE      = .TRUE.
+  ISMEAR      = 0
+  SIGMA       = 0.05
+  LORBIT      = 11
+Electronic relaxation
+#  IALGO       = 38
+  ALGO        = Fast
+  NELMIN      = 4
+  NELM        = 100
+  EDIFF       = 1E-6
+Writing Flag
+  LWAVE       = .TRUE.
+  LCHARG      = .TRUE.
+</code></pre></div></div>
+
+<h2 id="finally-carry-out-namd">Finally, Carry out NAMD:</h2>
+<p>Generate <strong>inicon</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python  script/random_int.py
+</code></pre></div></div>
+<p><strong>input</strong> for NAMD:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vaspver = 2           // VASP version 5.2.x or 5.4.x
+igamma = 0            // VASP is in Gamma version or not
+mode = 7              // calculation mode
+ldiag = 0             // diagnalize Hamiltion matrix or not: 1 or 0 or ...
+initc = 0             // initial conditions: 0-on original basis   1-on diagnal basis  3-on singlet/triplet basis
+lphase = 0            // turn on/off phase correction
+igsen = 0             // ground state energy option
+rundir = ../run1          // directory for all SCFs
+
+potim = 1.0           // fs  ion step time
+temp = 100            // temperature
+nelm = 1000           // electron intervals per ions step
+nsw = 3000            // No. of structures in rundir
+namdtime = 2500       // total steps of ions
+nsample = 50         // No. of samples(initial ion structures)
+ntraj = 20000         // trajectories for hopping
+nrun = 5              // digital numbers in rundir (e.g. 00123 for nrun = 5)
+
+// basis region
+spin = 0              // 0-up 1-down
+num_of_kpoints = 0    // No. of k-points for NAMD, 0 for all
+kpoints = 1           // 1, 2, 3 ...    list all k-points, if No. of k-points = 0, kpoints = 1
+bmax = 334 334        // band max for spin up/down
+bmin = 325 325        // band min for spin up/down
+
+// exciton
+ispin = 1             // ispin = 1 or 2, calculate spin down if ispin = 2 OR spin up = spin down if ispin = 1
+highmem = 1           // 0 or 1, usually highmem = 1 if machine memory is enough
+epsl = -1.0           // epsl = -1 ( &lt; 0), use gw; OR epsl &gt; 0 use a dielectric constant = epsl
+is_w_diagonal = 1     // only use diagonal W(1) OR not(0)
+// directory for GW calculation
+wpotdir = /data/alsaidi/graduation_project/WS2_NAMD/PrimitiveCell/SCF/g0w0/
+gapdiff = -1.0        // gap_GW - gap_DFT. if &lt; 0, NAMD will calculate automatically
+ngf = 2               // FFT for charge density matrix, usually ngf = 2
+nkptv = 9 9 1         // kpoints grid for BSE (KPOINTS-mesh in rundir)
+nkptv_GW = 3 3 1      // kpoints grid for GW  (KPOINTS-mesh from wpotdir transfer)
+
+idege = 1             // usually 1
+iexpot = 2
+iscpot = 1
+ienergy = 0
+
+cmax = 53 53        // conduction/valence bands region for spin up/down
+cmin = 53 53
+vmax = 52 52
+vmin = 52 52
+</code></pre></div></div>
+<p>run <strong>NAMD</strong>:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qsub sub_namd
+</code></pre></div></div>
+
+</article>
+
+<hr class="dingbat related" />
+
+
+
+
+  
+     
+
+
+
+  
+
+  
+    
+
+
+
+
+  
+
+  
+    
+
+
+
+<aside class="other-projects related mb4" role="complementary">
+  <h2>Other Projects</h2>
+  <div class="columns">
+    
+    
+      <div class="column column-1-2">
+        
+
+
+
+<article
+  class="project-card"
+  vocab="http://schema.org/" typeof="CreativeWork" resource="/projects/surface_generation/#project"
+  >
+  <meta property="name" content="Surface and Interface Generation"/>
+  <meta property="image" content="/assets/img/projects/hyde-v2@0,25x.jpg"/>
+
+  <a href="/projects/surface_generation/" class="no-hover no-print-link flip-project" tabindex="-1">
+    <div class="project-card-img img sixteen-nine">
+      
+        
+
+
+  <hy-img
+    
+    src="/assets/img/projects/hyde-v2@0,25x.jpg"
+    
+    alt="Surface and Interface Generation"
+    srcset="/assets/img/projects/hyde-v2.jpg 1920w,/assets/img/projects/hyde-v2@0,5x.jpg 960w,/assets/img/projects/hyde-v2@0,25x.jpg 480w"
+    sizes="(min-width: 90em) 22.5rem, (min-width: 54em) 19.5rem, (min-width: 42em) 17.5rem, 100vw"
+  
+    
+    root-margin="512px"
+  >
+    <noscript><img data-ignore 
+    src="/assets/img/projects/hyde-v2@0,25x.jpg"
+    
+    alt="Surface and Interface Generation"
+    srcset="/assets/img/projects/hyde-v2.jpg 1920w,/assets/img/projects/hyde-v2@0,5x.jpg 960w,/assets/img/projects/hyde-v2@0,25x.jpg 480w"
+    sizes="(min-width: 90em) 22.5rem, (min-width: 54em) 19.5rem, (min-width: 42em) 17.5rem, 100vw"
+  /></noscript>
+    <span class="loading" slot="loading" hidden>
+      <span class="icon-cog"></span>
+    </span>
+  </hy-img>
+
+
+      
+    </div>
+  </a>
+  <h3 class="project-card-title">
+    <a href="/projects/surface_generation/" class="flip-title" property="mainEntityOfPage">Surface and Interface Generation</a>
+  </h3>
+  
+    <p class="project-card-text fine" property="disambiguatingDescription">
+      Cleave slabs and predict optimized geometric structure of interfaces
+
+    </p>
+  
+</article>
+
+      </div>
+    
+
+    
+    
+  </div>
+</aside>
+
+
+  
+
+
+  
+
+  
+<footer role="contentinfo">
+  <hr/>
+  
+    <p><small class="copyright">© 2020. All rights reserved.
+</small></p>
+  
+  
+  
+  <hr class="sr-only"/>
+</footer>
+
+
+</main>
+
+    <hy-drawer
+  class=""
+  align="left"
+  threshold="10"
+  touch-events
+  prevent-default
+>
+  <header id="_sidebar" class="sidebar" role="banner">
+    
+    <div class="sidebar-bg sidebar-overlay" style="background:linear-gradient(to bottom,#193747 0%,#233e4c 30%,#3c929e 50%,#d5d5d4 70%,#cdccc8 100%)"></div>
+
+    <div class="sidebar-sticky">
+      <div class="sidebar-about">
+        
+          <a class="no-hover" href="/" tabindex="-1">
+            <img src="/assets/icons/icon.png" class="avatar" alt="Jiawei Zhan" data-ignore />
+          </a>
+        
+        <h2 class="h1"><a href="/">Jiawei Zhan</a></h2>
+        
+        
+          <p class="">
+            PhD Student at PME, UChicago
+
+          </p>
+        
+      </div>
+
+      <nav class="sidebar-nav heading" role="navigation">
+        <span class="sr-only">Navigation:</span>
+<ul>
+  
+    
+      
+      <li>
+        <a
+          id="_navigation"
+          href="/resume/"
+          class="sidebar-nav-item"
+          
+        >
+          Résumé
+        </a>
+      </li>
+    
+      
+      <li>
+        <a
+          
+          href="/projects/"
+          class="sidebar-nav-item active"
+          
+        >
+          Projects
+        </a>
+      </li>
+    
+      
+      <li>
+        <a
+          
+          href="/news/"
+          class="sidebar-nav-item"
+          
+        >
+          News
+        </a>
+      </li>
+    
+  
+</ul>
+
+      </nav>
+
+      
+
+      <div class="sidebar-social">
+        <span class="sr-only">Social:</span>
+<ul>
+  
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://www.linkedin.com/in/jiawei-zhan-11a99b1a3" title="LinkedIn" class="no-mark-external">
+      <span class="icon-linkedin2"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://github.com/JiaweiZhan" title="GitHub" class="no-mark-external">
+      <span class="icon-github"></span>
+      <span class="sr-only">GitHub</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="mailto:jiaweiz@uchicago.edu" title="Email" class="no-mark-external">
+      <span class="icon-mail"></span>
+      <span class="sr-only">Email</span>
+    </a>
+  </li>
+
+
+    
+  
+</ul>
+
+      </div>
+    </div>
+  </header>
+</hy-drawer>
+<hr class="sr-only" hidden />
+
+  
+</hy-push-state>
+
+<!--[if gt IE 10]><!---->
+
+  <script nomodule>!function(){var e=document.createElement("script");if(!("noModule"in e)&&"onbeforeload"in e){var t=!1;document.addEventListener("beforeload",function(n){if(n.target===e)t=!0;else if(!n.target.hasAttribute("nomodule")||!t)return;n.preventDefault()},!0),e.type="module",e.src=".",document.head.appendChild(e),e.remove()}}();
+</script>
+  <script type="module" src="/assets/js/hydejack-8.5.2.js"></script>
+  <script nomodule src="/assets/js/hydejack-legacy-8.5.2.js" defer></script>
+  
+
+  
+
+  <script type="module">
+    if ('serviceWorker' in navigator) {
+      /**/
+      navigator.serviceWorker.getRegistration()
+        .then(r => r.unregister())
+        .catch(() => {});
+      /**/
+    }
+  </script>
+
+<!--<![endif]-->
+
+
+
+
+<h2 class="sr-only" hidden>Templates (for web app):</h2>
+
+<template id="_animation-template" hidden>
+  <div class="animation-main fixed-top">
+    <div class="content">
+      <div class="page"></div>
+    </div>
+  </div>
+</template>
+
+<template id="_loading-template" hidden>
+  <div class="loading nav-btn fr">
+    <span class="sr-only">Loading…</span>
+    <span class="icon-cog"></span>
+  </div>
+</template>
+
+<template id="_error-template" hidden>
+  <div class="page">
+    <h1 class="page-title">Error</h1>
+    
+    
+    <p class="lead">
+      Sorry, an error occurred while loading <a class="this-link" href=""></a>.
+
+    </p>
+  </div>
+</template>
+
+<template id="_forward-template" hidden>
+  <button id="_forward" class="forward nav-btn no-hover fl">
+    <span class="sr-only">Forward</span>
+    <span class="icon-arrow-right2"></span>
+  </button>
+</template>
+
+<template id="_back-template" hidden>
+  <button id="_back" class="back nav-btn no-hover fl">
+    <span class="sr-only">Back</span>
+    <span class="icon-arrow-left2"></span>
+  </button>
+</template>
+
+<template id="_permalink-template" hidden>
+  <a href="#" class="permalink">
+    <span class="sr-only">Permalink</span>
+    <span class="icon-link"></span>
+  </a>
+</template>
+
+
+
+  <template id="_dark-mode-template" hidden>
+  <button id="_dark-mode" class="nav-btn no-hover fl" >
+    <span class="sr-only">Dark Mode</span>
+    <span class="icon-contrast"></span>
+  </button>
+</template>
+
+
+
+
+</body>
+</html>
