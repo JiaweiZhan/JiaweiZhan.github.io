@@ -149,6 +149,11 @@ awards:
     awarder: "University of Science and Technology of China"
     # summary: "For those students who get "
 publications:
+  - name: "Nonempirical Range-Separated Hybrid Functional with Spatially Dependent Screened Exchange"
+    publisher: "ACS Sustainable Chem. Eng."
+    releaseDate: "2023-08-17"
+    website: "https://pubs.acs.org/doi/10.1021/acs.jctc.3c00580"
+    summary: "Electronic structure calculations based on density functional theory (DFT) have successfully predicted numerous ground-state properties of a variety of molecules and materials. However, exchange and correlation functionals currently used in the literature, including semilocal and hybrid functionals, are often inaccurate to describe the electronic properties of heterogeneous solids, especially systems composed of building blocks with large dielectric mismatch. Here, we present a dielectric-dependent range-separated hybrid functional, screened-exchange range-separated hybrid (SE-RSH), for the investigation of heterogeneous materials. We define a spatially dependent fraction of exact exchange inspired by the static Coulomb-hole and screened-exchange (COHSEX) approximation used in many-body perturbation theory, and we show that the proposed functional accurately predicts the electronic structure of several nonmetallic interfaces, three- and two-dimensional, pristine, and defective solids and nanoparticles."
   - name: "Potassium-doped g-C<sub>3</sub>N<sub>4</sub> Achieving Efficient Visible-Light-Driven CO<sub>2</sub> Reduction"
     publisher: "ACS Sustainable Chem. Eng."
     releaseDate: "2020-05-13"
