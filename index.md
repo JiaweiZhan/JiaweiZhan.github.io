@@ -16,6 +16,10 @@ general Density-Dependent Hybrid Functional (DDH)
 ## News
 <!--posts-->
 ## Publications
+- **Nonempirical Range-Separated Hybrid Functional with Spatially Dependent Screened Exchange**  
+<span style="color:gray"> <font size="3"><span style="color:black">Jiawei Zhan</span>, Marco Govoni, and Giulia Galli</font></span>  
+<span style="color:rgb(79,177,186);font-weight:bold"> <font size="3">J. Chem. Theory Comput. 2023</font></span> <font size="3">/</font> [<span style="color:rgb(79,177,186)"> <font size="3">ACS</font></span>](https://aip.scitation.org/doi/full/10.1063/5.0010615) <font size="3">/</font>
+
 - **Ogre:&nbsp;A Python package for molecular crystal surface generation with applications to surface energy and crystal habit prediction**  
 <span style="color:gray"> <font size="3">Shuyang Yang, Imanuel Bier, Wen Wen, <span style="color:black">Jiawei Zhan</span>, Saeed Moayedpour, and Noa Marom</font></span>  
 <span style="color:rgb(79,177,186);font-weight:bold"> <font size="3">J. Chem. Phys. 2020</font></span> <font size="3">/</font> [<span style="color:rgb(79,177,186)"> <font size="3">AIP</font></span>](https://aip.scitation.org/doi/full/10.1063/5.0010615) <font size="3">/</font>[<span style="color:rgb(79,177,186)"> <font size="3">Project Page</font></span>](https://www.noamarom.com/software/ogre/)
