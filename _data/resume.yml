@@ -18,7 +18,7 @@ basics:
     # address: "545 N McClurg Ct"
     # postalCode: "60611"
     city: "Chicago"
-    countryCode: "USA"
+    countryCode: "US"
     region: "Illinois"
   profiles:
     - network: "Github"
@@ -28,6 +28,20 @@ basics:
       username: "Jiawei Zhan"
       url: "https://www.linkedin.com/in/jiawei-zhan-11a99b1a3/"
 work:
+  - company: "TikTok (ByteDance Research)"
+    position: "Research Scientist Intern"
+    startDate: "2023-06-12"
+    endDate: "2023-09-01"
+    summary: >
+        Predicting Physical Models with Uncertainty-Aware Graph Neural Networks
+    highlights:
+      - "Combine Behler and Parrinello (BP) architecture and Deep Sets neural network to better represent solid system"
+      - "Calculate dielectric screening by using separable form of Screened Coulomb Interaction and use that to control the contribution of HF and PBE exchange"
+      - "Designed a graph representation for many-body systems, reducing computational time and storage needs."
+      - "Implemented a Graph Neural Network with Janossy Pooling for improved pattern extraction from graph data."
+      - "Developed a multithread dataset with data distribution scheme to streamline data loading, enabling training on datasets up to ~TB with balanced GPU load. This reduced training cost from minutes to seconds per epoch."
+      - "Estimating the posterior Gaussian distribution of neural network’s weights by approximating the low-rank covariance matrix, enabling efficient out-of-domain data detection and prediction risk calibration."
+
   - company: "the University of Chicago"
     position: "Research Assistant"
     website: "https://galligroup.uchicago.edu/People/jzhan.php"
@@ -162,8 +176,8 @@ skills:
   - name: "Machine Learning"
     level: "Master"
     keywords:
-      - "Neural Network"
       - "Deep Learning"
+      - "Reinforcement Learning"
       - "Statistics and Algorithm"
   - name: "Programming"
     level: "Master"
