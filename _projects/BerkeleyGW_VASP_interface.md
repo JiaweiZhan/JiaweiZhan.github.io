@@ -1,7 +1,7 @@
 ---
 layout: project
 title: 'Berkeley GW--VASP interface'
-# date: 1 Jul 2020
+date: 1 Jul 2020
 image: /assets/img/projects/VASP_BGW.jpg
 screenshot: /assets/img/projects/VASP_BGW.jpg
 # screenshot:

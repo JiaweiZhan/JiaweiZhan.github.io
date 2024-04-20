@@ -1,7 +1,7 @@
 ---
 layout: project
 title: 'Surface and Interface Generation'
-# date: 1 Jul 2019
+date: 1 Jul 2019
 # image: /assets/img/projects/hy-push-state.svg
 # screenshot: /assets/img/projects/hy-push-state.svg
 screenshot:
