@@ -3,10 +3,10 @@
 # See also: <https://jsonresume.org/>.
 basics:
   name: "Jiawei Zhan"
-  label: "PhD student at the University of Chicago (UChicago)"
+  label: "4th year Ph.D. student at the University of Chicago (UChicago)"
   # picture: "/assets/icons/icon.png"
   email: "jiaweiz@uchicago.edu"
-  phone: "(+86) 18980001323"
+  phone: "(+1) 8722615252"
   website: "http://jiaweizhan.com/"
   summary: >
     I’m fascinated by the efficiency of using computational technics to 
@@ -15,11 +15,11 @@ basics:
     that are ubiquitous in the computational physics’ field. My passion for this subject 
     has led me to pursue further studies and ultimately, a career in computational physics.
   location:
-    address: "89th Xinghe Road"
-    postalCode: "610031"
-    city: "Chengdu"
-    countryCode: "China"
-    region: "Sichuan Provience"
+    # address: "545 N McClurg Ct"
+    # postalCode: "60611"
+    city: "Chicago"
+    countryCode: "USA"
+    region: "Illinois"
   profiles:
     - network: "Github"
       username: "jiaweizhan"
@@ -169,6 +169,8 @@ skills:
     level: "Master"
     keywords:
       - "C/C++"
+      - "CUDA"
+      - "MPI"
       - "Python"
       - "Fortran"
       - "Java"
