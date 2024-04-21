@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deep Learning | Jiawei Zhan</title>
+    <link>http://localhost:1313/tag/deep-learning/</link>
+      <atom:link href="http://localhost:1313/tag/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Deep Learning</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 03 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Deep Learning</title>
+      <link>http://localhost:1313/tag/deep-learning/</link>
+    </image>
+    
+    <item>
+      <title>Multi-Agent Reinforcement Learning for Cooperative Games</title>
+      <link>http://localhost:1313/project/mappo_overcooked/</link>
+      <pubDate>Wed, 03 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/mappo_overcooked/</guid>
+      <description>&lt;h1 id=&#34;project-overview&#34;&gt;Project Overview&lt;/h1&gt;
+&lt;p&gt;In the multi-agent &lt;a href=&#34;https://github.com/HumanCompatibleAI/overcooked_ai&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Overcooked environment&lt;/a&gt;, two chefs must collaborate in a restaurant to cook onion soups. The objective is to develop a reinforcement learning method that maximizes the number of soups delivered within an episode across various layouts. I found this problem particularly interesting and challenging, as traditional reinforcement learning approaches like Q-Learning and policy gradient are not well-suited for multi-agent environments. Consequently, I chose this project as a weekend endeavor to broaden my understanding of reinforcement learning. To address this challenge, I proposed using Multi-Agent Proximal Policy Optimization (MAPPO), which involves centralized training and decentralized execution techniques. Additionally, I implemented reward shaping and multiprocessing to enhance exploration efficiency. This approach proved highly effective in the Overcooked game, as demonstrated by the implementation details available in my &lt;a href=&#34;https://github.com/JiaweiZhan/MAPPO_OvercookedGame&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;theory&#34;&gt;Theory&lt;/h1&gt;
+&lt;h2 id=&#34;core-proximal-policy-optimization&#34;&gt;Core: Proximal Policy Optimization&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://arxiv.org/abs/1707.06347&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Proximal Policy Optimization (PPO)&lt;/a&gt; is trying to solve a question: how can we take the biggest possible improvement step on a policy without stepping so far from the old, using the data that are currently available. This&amp;rsquo;s achieved by clipping in the objective function to prevent the new policy to get far from the old policy. Specifically, PPO update polices via&lt;/p&gt;
+
+
+
+\begin{equation}
+  \theta_{k + 1}=\mathrm{argmax}_{\theta}E_{s, a\sim\pi_{\theta_k}}[L(s, a, \theta_k, \theta)],
+\end{equation}
+
+&lt;p&gt;by taking multiple steps of gradient decent. Here $L$ is given by:&lt;/p&gt;
+
+
+
+\begin{equation}
+\begin{split}
+L(s, a, \theta_k, \theta) = \mathrm{min}\begin{cases}\frac{\pi_{\theta}(a|s)}{\pi_{\theta_k}(a|s)}A^{\pi_{\theta_{k}}}(s, a), \\
+\mathrm{clip}\left(\frac{\pi_{\theta}(a|s)}{\pi_{\theta_k}(a|s)}, 1-\epsilon, 1+\epsilon\right)A^{\pi_{\theta_{k}}}(s, a).\end{cases}
+\end{split}
+\end{equation}
+
+&lt;p&gt;where hyperparameter $\epsilon$ controls how far away the new policy is allowed to go from the old. The advantage function $A^{\pi_{\theta}}(s, a)$ is approximated via &lt;a href=&#34;https://arxiv.org/abs/1506.02438?source=post_page---------------------------&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Generalized Advantage Estimation&lt;/a&gt;:
+\begin{equation}
+A_t^{\mathrm{GAE}(\gamma, \lambda)} = \sum_{l=0}^{\infty}(\gamma\lambda)^{l}\left(r_{t+l} + \gamma V^{\pi, \gamma}(s_{t + l + 1}) - V^{\pi, \gamma}(s_{t + l})\right).
+\end{equation}
+Within the advantage function is the value function $V^{\pi, \gamma}(s_t)$ approximated by another model, which is fitted by regression on mean-squared error:&lt;/p&gt;
+
+
+
+\begin{equation}
+  \psi = \mathrm{argmin}_{\phi}||V_{\psi}^{\pi, \gamma}(s_t) - \sum_{l=0}^{\infty}\gamma^{l}r_{t + l}||^2,
+\end{equation}
+
+&lt;p&gt;through gradient descent algorithm.&lt;/p&gt;
+&lt;h2 id=&#34;centralizing-training-and-decentralizing-execution&#34;&gt;Centralizing Training and Decentralizing Execution&lt;/h2&gt;
+&lt;p&gt;The overcooked game is a cooperative, multi-agent games that may be challenging for traditional reinforcement learning approaches such as Q-Learning or policy gradien. Here, I decided to adopt &lt;a href=&#34;https://arxiv.org/abs/1706.02275&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;centralizing training and decentralizing execution technics&lt;/a&gt; to achieve cooperation amoung multiple-agent in the game. More concretely, for a game with N agents with policies $\Pi={\pi_1, &amp;hellip;, \pi_N}$ parameterized by $\Theta={\theta_1, &amp;hellip;, \theta_N}$. The gradient of expected return $J(\theta_i)=E[R_{i}]$ for agent $i$ is:&lt;/p&gt;
+
+
+
+\begin{equation}
+  \nabla_{\theta_{i}}J(\theta_i)=E_{o_i, a_i\sim\pi_i}[\nabla_{\theta_i}\mathrm{log}\pi_i(a_i|o_i)A_{i}^{\Pi}:(\mathbf{x}, a1, a2, ..., a_N)],
+\end{equation}
+
+&lt;p&gt;where $o_i$ is the local observation of agent $i$, and $\mathbf{x}$ is the global state of the game,  including all agents&amp;rsquo; features $\mathbf{\{[player\ i\ features, player\ i\ position]\}}$. In other word, during the training procedure, the advantage function is approximated given the full information of the game and agents&amp;rsquo; strategies are evolved based on that. Hopefully, agents can learn to coorperate and make decisions based on their local observation.&lt;/p&gt;
+&lt;h1 id=&#34;implementation-details&#34;&gt;Implementation Details&lt;/h1&gt;
+&lt;p&gt;The backbone PPO follows the implementation in the original &lt;a href=&#34;https://arxiv.org/abs/1707.06347&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PPO paper&lt;/a&gt;, utilizing a 4-layer policy model with 96, 64, 64, and 6 neurons, and a separate 4-layer value function with 48, 64, 64, and 1 neurons. This section discusses additional implementation aspects, including centralized training and decentralized execution, and outlines strategies to tackle challenges associated with sparse rewards and time-intensive online data collection.&lt;/p&gt;
+&lt;h2 id=&#34;shared-policy-model-and-symmetric-value-function&#34;&gt;Shared Policy Model and Symmetric Value Function&lt;/h2&gt;
+&lt;p&gt;The idea of shared policy is motivated by the pursuit of AGI in the whold AI field as well as the intuition of &amp;lsquo;I should be able to know what to do if I&amp;rsquo;m in his position.&amp;rsquo; In that case, both agent in the Overcooked game will share a single policy game. And two agents are trying to optimized the unified strategy together:
+
+
+
+\begin{equation}
+  \theta_{k+1} = \mathrm{argmax}_{\theta}E_{i}\left[E_{s_i, a_i\sim\pi_{\theta_k}}[L(o_i, a_i, \theta_k, \theta)]\right]
+\end{equation},
+
+where $i$ is the agents&amp;rsquo; index.&lt;/p&gt;
+&lt;p&gt;Additionally, the centralized value function should be invarient to the switch of two agents, since the agents should be indistinguishable and the global state should only depends on where the agents are located in as well what they are doing, instead who is doing that. Motivated by this the invarient value function can be expressed by:
+
+
+
+\begin{equation}
+  V_{\psi}(\mathbf{x}) = \mathbf{O}\{f_{\psi}(o_i)\},
+\end{equation}
+
+where $\mathbf{O}$ can be any invarient operator, such as mean and plus. In my implementation, I choose to use plus operator.&lt;/p&gt;
+&lt;h2 id=&#34;reward-shaping&#34;&gt;Reward Shaping&lt;/h2&gt;
+&lt;p&gt;In the default setting, agents receive rewards only if they successfully deliver onion soup, which requires a sequence of actions including placing onions in a pot and picking up the soup. To promote efficient learning of these prerequisites for soup-making, rewarding intermediate achievements could be beneficial. This strategy helps overcome the challenge of sparse rewards throughout the game, potentially leading to highly inefficient exploration processes. The reward formula I employ is: $ r = 20 \times$ soup delivery$ + 3 \times$ PLACEMENT IN POT REWARD $+ 3 \times $DISH PICKUP REWARD$ + 5 \times $SOUP PICKUP REWARD. The coefficients in this formula represent the cumulative score all agents receive when one successfully completes an action. Due to the centralized training techniques I use, the rewards are shared among all agents.&lt;/p&gt;
+&lt;h2 id=&#34;efficient-exploration-with-parallel-multiple-walkers&#34;&gt;Efficient Exploration with Parallel Multiple Walkers&lt;/h2&gt;
+&lt;p&gt;The exploration process significantly impacts the efficiency of learning in RL model training and can be time-consuming. To enhance efficiency, I have set up multiple independent environments allowing parallel exploration by creating several processes, each hosting an independent environment. These processes share the same policy model and value function. Gradients of weights are computed in parallel, then averaged and synchronized across processes. This setup enables all agents to explore the environments and collect data using the same strategy and value function.&lt;/p&gt;
+&lt;h1 id=&#34;result&#34;&gt;Result&lt;/h1&gt;
+&lt;p&gt;By combining all technics mentioned above, I&amp;rsquo;m able to train MAPPO to deliver more than 7 onion soups for all 5 layouts in 400 step horizon. Fig.&lt;a href=&#34;#pookie&#34;&gt;train_eval&lt;/a&gt; shows the number of soups delivered per episode during the training procedure(a), as well as the reliability of trained model by plotting the mean and variance of occurance of delivering soup for 100 consecutive episodes(b). More than that, thanks to the parallel multi-walker exploration strategy enabled by multi-processing with 32 CPUs, the RL model can be trained within 5 minutes per layout.&lt;/p&gt;
+&lt;p align=&#34;center&#34; name=&#34;pookie&#34;&gt;
+  &lt;img alt=&#34;Light&#34; src=&#34;./nsoup_train.png&#34; width=&#34;65%&#34;&gt;
+  &lt;img alt=&#34;Dark&#34; src=&#34;./eval.png&#34; width=&#34;65%&#34;&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;demo&#34;&gt;Demo&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;asymmetric advantages layout&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./asymmetric_advantages.gif&#34; alt=&#34;asymmetric_advantages&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;forced coordination layout&lt;/strong&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./forced_coordination.gif&#34; alt=&#34;forced_coordination&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h1 id=&#34;discussion&#34;&gt;Discussion&lt;/h1&gt;
+&lt;p&gt;I showed that MAPPO with centralizing training and decentralizing execution strategy achieves surprising effectiveness in cooperative, multi-agent Overcooked game. I also demonstrated the importance of reward structures in improving learning efficiency. Here are some additional explorations that I could possibly do in the future:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Utilizing RNN for the policy and value functions.&lt;/li&gt;
+&lt;li&gt;Robustness and adversarial testing.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

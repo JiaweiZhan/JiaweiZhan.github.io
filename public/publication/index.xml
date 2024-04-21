@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications | Jiawei Zhan</title>
+    <link>http://localhost:1313/publication/</link>
+      <atom:link href="http://localhost:1313/publication/index.xml" rel="self" type="application/rss+xml" />
+    <description>Publications</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 04 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Publications</title>
+      <link>http://localhost:1313/publication/</link>
+    </image>
+    
+    <item>
+      <title>Screened-Exchange Range-Separated Hybrid Functionals for Surfaces and Interfaces</title>
+      <link>http://localhost:1313/publication/zhan-2024-screened/</link>
+      <pubDate>Mon, 04 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/zhan-2024-screened/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nonempirical Range-Separated Hybrid Functional with Spatially Dependent Screened Exchange</title>
+      <link>http://localhost:1313/publication/zhan-2023-nonempirical/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/zhan-2023-nonempirical/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hybrid functionals for heterogenous materials</title>
+      <link>http://localhost:1313/publication/zhan-2023-hybrid/</link>
+      <pubDate>Sun, 05 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/zhan-2023-hybrid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ogre: A python package for molecular crystal surface generation with applications to surface energy and crystal habit prediction</title>
+      <link>http://localhost:1313/publication/yang-2020-ogre/</link>
+      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/yang-2020-ogre/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Potassium-doped g-C3N4 achieving efficient visible-light-driven CO2 reduction</title>
+      <link>http://localhost:1313/publication/wang-2020-potassium/</link>
+      <pubDate>Wed, 13 May 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/wang-2020-potassium/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

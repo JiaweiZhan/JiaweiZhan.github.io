@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recent &amp; Upcoming Talks | Jiawei Zhan</title>
+    <link>http://localhost:1313/event/</link>
+      <atom:link href="http://localhost:1313/event/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent &amp; Upcoming Talks</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 04 Mar 2023 09:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:1313/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Recent &amp; Upcoming Talks</title>
+      <link>http://localhost:1313/event/</link>
+    </image>
+    
+    <item>
+      <title>Screened-Exchange Range-Separated Hybrid Functionals for Surfaces and Interfaces</title>
+      <link>http://localhost:1313/talk/screened-exchange-range-separated-hybrid-functionals-for-surfaces-and-interfaces/</link>
+      <pubDate>Sat, 04 Mar 2023 09:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/talk/screened-exchange-range-separated-hybrid-functionals-for-surfaces-and-interfaces/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
