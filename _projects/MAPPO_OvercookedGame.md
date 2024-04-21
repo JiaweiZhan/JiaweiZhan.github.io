@@ -36,6 +36,3 @@ Within the advantage function is the value function $V^{\pi, \gamma}(s_t)$ appro
 $$  \psi = \mathrm{argmin}_{\phi}||V_{\psi}^{\pi, \gamma}(s_t) - \sum_{l=0}^{\infty}\gamma^{l}r_{t + l}||^2,$$
 
 through gradient descent algorithm.
-
-
- {% pdf "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" %}
