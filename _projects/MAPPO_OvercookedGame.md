@@ -37,6 +37,17 @@ $$  \psi = \mathrm{argmin}_{\phi}||V_{\psi}^{\pi, \gamma}(s_t) - \sum_{l=0}^{\in
 
 through gradient descent algorithm.
 
+
+Example:
+
+Lorem ipsum $$ f(x) = x^2 $$.
+
+Markdown:
+~~~md
+Lorem ipsum $$ f(x) = x^2 $$.
+~~~
+
+~~~latex
 $$
 \begin{aligned} %!!15
   \phi(x,y) &= \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right) \\[2em]
@@ -54,3 +65,4 @@ $$
                \end{array}\right)
 \end{aligned}
 $$
+~~~
