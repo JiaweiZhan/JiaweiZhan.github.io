@@ -2,8 +2,8 @@
 layout: project
 title: 'Multi-Agent Proximal Policy Optimization for Cooperative, Multi-Agent Games'
 date: 20 Apr 2024
-image: /assets/img/projects/mappo_BGW.jpg
-screenshot: /assets/img/projects/mappo_BGW.jpg
+image: /assets/img/projects/mappo_BGW.png
+screenshot: /assets/img/projects/mappo_BGW.png
 caption: Design deep reinceforcement learning method for the famous Overcooked game.
 description: >
     In a multi-agent Overcooked environment, two chefs in a resturant need to collaborate to cook onion soups. My goal is to come up with a reinforcement learning method to maximaize the number of soups delivered within an episode on a variety of layouts.
