@@ -16,6 +16,7 @@ gem "jekyll"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
+  gem "jekyll-pdf-embed"
   gem "jekyll-default-layout"
   gem "jekyll-feed"
   gem "jekyll-optional-front-matter"

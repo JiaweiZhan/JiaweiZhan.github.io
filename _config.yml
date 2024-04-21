@@ -269,6 +269,7 @@ include:
 # ========================================================================================
 
 plugins:
+  - jekyll-pdf-embed
   - jekyll-default-layout
   - jekyll-feed
   - jekyll-optional-front-matter
