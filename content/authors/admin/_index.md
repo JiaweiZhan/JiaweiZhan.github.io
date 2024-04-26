@@ -94,7 +94,7 @@ social:
     link: "mailto:jiaweiz@uchicago.edu"
   - icon: graduation-cap # Alternatively, use `google-scholar` icon from `ai` icon pack
     icon_pack: fas
-    link: https://scholar.google.com.co/citations?user=dv0vs6cAAAAJ&hl=vi
+    link: https://scholar.google.com.co/citations?user=dv0vs6cAAAAJ&hl=en
   - icon: github
     icon_pack: fab
     link: https://github.com/JiaweiZhan
