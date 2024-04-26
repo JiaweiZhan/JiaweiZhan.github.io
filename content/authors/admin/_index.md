@@ -106,7 +106,7 @@ social:
   # and uncomment the lines below.
   - icon: cv
     icon_pack: ai
-    link: uploads/Jiawei_Intern_resume_hpc_12.pdf
+    link: uploads/Jiawei_resume_quant_hpc.pdf
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
