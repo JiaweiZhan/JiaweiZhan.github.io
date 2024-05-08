@@ -19,7 +19,7 @@ image:
 #     icon_pack: fab
 #     name: Follow
 #     url: https://twitter.com/georgecushen
-url_code: 'https://github.com/JiaweiZhan/MAPPO_OvercookedGame'
+url_code: 'https://github.com/JiaweiZhan/mappo_clde'
 url_pdf: './mappo_overcooked.pdf'
 url_slides: ''
 url_video: ''
