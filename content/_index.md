@@ -62,6 +62,13 @@ sections:
       #   Leave `date_end` empty if it's your current employer.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
+        - title: Quantitative Research Intern
+          company: IMC Trading
+          company_url: 'https://www.imc.com/us/'
+          company_logo: org-imc
+          location: Chicago, IL
+          date_start: '2025-06-09'
+          date_end: '2025-08-15'
         - title: Ph.D. Candidate
           company: University of Chicago
           company_url: ''
