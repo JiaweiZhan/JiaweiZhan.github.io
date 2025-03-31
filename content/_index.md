@@ -65,7 +65,7 @@ sections:
         - title: Quantitative Research Intern
           company: IMC Trading
           company_url: 'https://www.imc.com/us/'
-          company_logo: org-imc2
+          company_logo: org-imc
           location: Chicago, IL
           date_start: '2025-06-09'
           date_end: '2025-08-15'
